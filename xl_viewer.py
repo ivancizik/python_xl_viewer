@@ -3,8 +3,9 @@
 
 
 # /// import + other system stuff
-import openpyxl
+import keyboard
 from prettytable import PrettyTable
+import openpyxl
 from openpyxl.utils.cell import get_column_letter
 from openpyxl.utils import column_index_from_string
 
@@ -14,7 +15,7 @@ t = PrettyTable()
 xl_column = []
 xl_row = []
 
-xl_search = ""
+xl_input = ""
 xl_search_column = ""
 
 wb = openpyxl.load_workbook("sample.xlsx") # open file
@@ -22,7 +23,7 @@ sheet = wb.active
 
 # DEF
 
-# generate table
+# generate table and print
 def generate_table():
 
     xl_column = []
@@ -46,20 +47,35 @@ def generate_table():
 
             if y == (sheet.max_column):
                 t.add_row(xl_row)
-    print(wb.active)
+    print(sheet)
     print(t)
     print(wb.sheetnames)
+    print("")
+    print("F1 - open sheet. F3 - search. F10 - exit")
 
-    t.clear_rows()
+
 
 #CODE
 
-# open spreadsheet file
-
 generate_table()
 
-while True:
-    sheet = wb[str(input("Open Sheet: "))]
-    generate_table()
-    if input() == "exit":
-       break
+while True:  # making a loop
+    if keyboard.is_pressed('F1'):
+        while True:
+            print("")
+            t.clear_rows()
+            xl_input = input("Open Sheet: ")
+            if xl_input in wb.sheetnames:
+                sheet = wb[xl_input]
+                generate_table()
+                break
+            else:
+                print("Sheet does not exist")
+
+    if keyboard.is_pressed('F3'):
+        print("TO-DO")
+
+    if keyboard.is_pressed('F10'):
+        print("")
+        print("Exiting...")
+        break
