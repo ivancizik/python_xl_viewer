@@ -4,21 +4,42 @@
 
 # /// import + other system stuff
 from prettytable import PrettyTable
+import sys
 import openpyxl
 from openpyxl.utils.cell import get_column_letter
 from openpyxl.utils import column_index_from_string
 
 
 # /// variables
+
+xl_file = sys.argv[1] if len(sys.argv) > 1 else "" # argument from command line
+
+if xl_file == "": # if argument is not specified
+    print(
+    '''
+    You didn't specified the input file
+    Make sure that you run script with argument:
+    python xl_viewer.py sample.xlsx
+    '''
+    )
+    quit()
+
+
 t = PrettyTable()
-xl_column = []
-xl_row = []
+xl_column = []  # table column
+xl_row = []     # table row
 
-xl_input = ""
-xl_search_column = ""
+xl_input = ""           # input for sheet option
+xl_search_column = ""   # variable for search TO-DO
 
-wb = openpyxl.load_workbook("sample.xlsx") # open file
-sheet = wb.active
+try:
+    wb = openpyxl.load_workbook(xl_file) # open file
+except:
+    # error if file is not found or not supported
+    print("Error", xl_file,"not found or file not supported")
+    quit()
+
+sheet = wb.active # open active sheet in file
 
 # DEF
 
@@ -50,7 +71,7 @@ def generate_table():
     print(t)
     print(wb.sheetnames)
     print("")
-    print("1 - open sheet. 2 - search. 3 - exit")
+    print("1 - Open sheet. 2 - Search. 3 - Exit")
 
 
 
