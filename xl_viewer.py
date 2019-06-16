@@ -3,7 +3,6 @@
 
 
 # /// import + other system stuff
-import keyboard
 from prettytable import PrettyTable
 import openpyxl
 from openpyxl.utils.cell import get_column_letter
@@ -51,7 +50,7 @@ def generate_table():
     print(t)
     print(wb.sheetnames)
     print("")
-    print("F1 - open sheet. F3 - search. F10 - exit")
+    print("1 - open sheet. 2 - search. 3 - exit")
 
 
 
@@ -60,7 +59,8 @@ def generate_table():
 generate_table()
 
 while True:  # making a loop
-    if keyboard.is_pressed('F1'):
+    xl_input = input("Select action: ")
+    if xl_input == "1":
         while True:
             print("")
             t.clear_rows()
@@ -72,10 +72,10 @@ while True:  # making a loop
             else:
                 print("Sheet does not exist")
 
-    if keyboard.is_pressed('F3'):
+    if xl_input == "2":
         print("TO-DO")
 
-    if keyboard.is_pressed('F10'):
+    if xl_input == "3":
         print("")
         print("Exiting...")
         break
