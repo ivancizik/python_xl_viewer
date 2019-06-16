@@ -1,6 +1,6 @@
 # Python spreadsheet viewer
 
-Simple spreadsheet viewer
+Sample simple spreadsheet viewer
 
 Script is using:
 * prettytable
@@ -11,6 +11,6 @@ Usage:
 ~~~~
 python xl_viewer.py sample.xlsx
 ~~~~
-  
 
-![Alt text](/screenshot.png?raw=true)
+
+![Alt text](/screenshot.PNG?raw=true)
