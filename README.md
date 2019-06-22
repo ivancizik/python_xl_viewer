@@ -1,6 +1,6 @@
 # Python spreadsheet viewer
 
-Sample simple spreadsheet viewer
+Sample script for simple spreadsheet viewer
 
 Script is using:
 * prettytable
