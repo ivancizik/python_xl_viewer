@@ -30,7 +30,10 @@ xl_column = []  # table column
 xl_row = []     # table row
 
 xl_input = ""           # input for sheet option
+
+xl_search_term = ""
 xl_search_column = ""   # variable for search TO-DO
+xl_compare = ""         # for search
 
 try:
     wb = openpyxl.load_workbook(xl_file) # open file
@@ -93,9 +96,28 @@ while True:  # making a loop
             else:
                 print("Sheet does not exist")
 
+    # Search
     if xl_input == "2":
-        print("TO-DO")
+        xl_search_term = input("Search for: ")
+        xl_search_column = input("Select column: ")
 
+        wb.create_sheet("Results")
+        sheet_result = wb["Results"]
+
+        for row in sheet.iter_rows():
+            xl_compare = str(row[column_index_from_string(xl_search_column[0]) - 1].value)
+
+            if xl_compare == "None":
+                xl_compare = "something"
+                
+            if xl_search_term.lower() in xl_compare.lower():
+                sheet_result.append((cell.value for cell in row))
+        
+        sheet = wb["Results"]
+        generate_table()
+        wb.remove(wb["Results"])
+        sheet = wb[wb.sheetnames[0]]
+       
     if xl_input == "3":
         print("")
         print("Exiting...")
