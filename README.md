@@ -9,6 +9,7 @@ Script is using:
 
 Usage:
 ~~~~
+python xl_viewer.py [file_name]
 python xl_viewer.py sample.xlsx
 ~~~~
 
