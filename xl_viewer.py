@@ -1,4 +1,4 @@
-# https://github.com/love2spooge/python_xl_viewer
+# https://github.com/ivancizik/python_xl_viewer
 
 
 
