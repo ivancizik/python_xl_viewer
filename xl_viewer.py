@@ -6,6 +6,7 @@
 from prettytable import PrettyTable
 import sys
 import openpyxl
+import os
 from openpyxl.utils.cell import get_column_letter
 from openpyxl.utils import column_index_from_string
 
@@ -48,7 +49,7 @@ sheet = wb.active # open active sheet in file
 
 # generate table and print
 def generate_table():
-
+    os.system('cls' if os.name == 'nt' else 'clear')
     xl_column = []
 
     xl_column.insert(0, "")
