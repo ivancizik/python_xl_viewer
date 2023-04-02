@@ -14,6 +14,8 @@ python xl_viewer.py sample.xlsx
 ~~~~
 
 
-![Alt text](/screenshot.PNG?raw=true)  
- 
-![Alt text](/screenshot2.png?raw=true)
+![](/screenshot.png?raw=true)
+
+![](/screenshot2.png?raw=true)
+
+![](/screenshot3.png?raw=true)
