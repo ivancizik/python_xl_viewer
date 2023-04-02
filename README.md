@@ -18,4 +18,4 @@ python xl_viewer.py sample.xlsx
 
 ![](/screenshot2.png?raw=true)
 
-![](/screenshot3.png?raw=true)
+![](/screenshot3a.png?raw=true)
