@@ -74,7 +74,7 @@ class excelFile:
         xl_search_term_offset = 0
         if xl_search_term[-2:] == "-h":
             xl_search_term_offset = 3
-            for row in self.sheet.iter_rows(min_row=1, max_row=2):
+            for row in self.sheet.iter_rows(min_row=1, max_row=1):
                 self.wb["Results"].append((c.value for c in row))
         for row in self.sheet.iter_rows():
             search_match = False
